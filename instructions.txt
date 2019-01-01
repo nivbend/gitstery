@@ -1,0 +1,20 @@
+A murder had been committed in Git Town!
+
+The detective, Kyle Pumbinner, said the crime scene report is on the `gtpd-archive` branch. He
+doesn't really remember the report ID... But he knows it was the first report he submitted after his
+son's ninth birthday (which was Saturday, July 20th), and it was the only report he submitted that
+week.
+
+When you find a suspect, you'd probably want to interview them. To do that, first find out their
+address. To go to that street, look for the street's name in the repository (Hint: it's a tag). To
+go to house number N on that street, go to the Nth ancestor. If you'd like to inspect the
+perimeters, you can look into the commit's contents - it'll contain a hash that you can view with
+certain git commands.
+
+Think you found the culprit? Check your answer with the following command:
+
+    echo "John Doe" | git hash-object --stdin | grep -iq -f /dev/stdin <(git show solution) && echo 'You found the murderer!' || echo 'No cigar, chief... Try again.'
+
+Replace John Doe with the name of the suspect that you want to check.
+
+For an extra challenge, try and solve the mystery without ever using `git checkout`.
